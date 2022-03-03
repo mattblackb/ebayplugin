@@ -1,0 +1,6 @@
+Plugin Name: Simple Example Plugin
+Description: Welcome to WordPress plugin development.
+Plugin URI:  https://plain.black
+Author:      Matt Burton
+Version:     1.0
+License:     GPLv2 or later

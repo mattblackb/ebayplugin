@@ -1,0 +1,6 @@
+.mattbEbay_result {
+    display: flex;
+    flex: auto;
+    width: 100%;
+    background-color: brown;
+}
