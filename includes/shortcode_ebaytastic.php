@@ -19,6 +19,11 @@ if(array_key_exists('num', $atts)){
 } else {
 	$number = 10;
 }
+if(array_key_exists('colour', $atts)){
+	$colour = $atts['colour'];
+} else {
+	$colour = "black";
+}
 $filterIndex = 0;
 $endpoint = $custom_url.'/services/search/FindingService/v1';  // URL to call
 $version = '1.0.0';  // API version supported by your application
@@ -68,16 +73,7 @@ if ($resp->ack == "Success") {
 		//include layouts with search results
 		require_once plugin_dir_path( __FILE__ ) . 'layouts/'.$atts['layout'].'.php';
 	} else {
-		$results = '';
-		// If the response was loaded, parse it and build links
-		foreach($resp->searchResult->item as $item) {
-		  $pic   = $item->galleryURL;
-		  $link  = $item->viewItemURL;
-		  $title = $item->title;
-	  
-		  // For each SearchResultItem node, build a link and append it to $results
-		  $results .= "<tr><td><img src=\"$pic\"></td><td><a href=\"$link\">$title</a></td></tr>";
-		}
+		require_once plugin_dir_path( __FILE__ ) . 'layouts/default.php';
    
     }
   }
@@ -95,7 +91,7 @@ if ($resp->ack == "Success") {
 // custom loop shortcode: [get_posts_example]
 function custom_loop_shortcode_get_posts( $atts ) {
 
-	$options = get_option( 'myplugin_options', myplugin_options_default() );
+	$options = get_option( 'mattbebay_options', mattbebay_options_default() );
 	
 	if ( isset( $options['custom_url'] ) && ! empty( $options['custom_url'] ) ) {
 		
@@ -143,7 +139,7 @@ function custom_loop_shortcode_get_posts( $atts ) {
 
 function wpb_hook_javascript() {
 	$affiliate = '5338915041';
-	$options = get_option( 'myplugin_options', myplugin_options_default() );
+	$options = get_option( 'mattbebay_options', mattbebay_options_default() );
 	if ( isset( $options['custom_affilaite'] ) && ! empty( $options['custom_affilaite'] ) ) {
 		
 		$affiliate=  $options['custom_affilaite'] ;

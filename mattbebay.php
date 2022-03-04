@@ -34,7 +34,7 @@ require_once plugin_dir_path( __FILE__ ) . 'includes/shortcode_ebaytastic.php';
 
 
 // validate plugin settings 
-function myplugin_validate_options($input) {
+function mattbebay_validate_options($input) {
 	
 	// todo: add validation functionality..
 	
@@ -43,7 +43,7 @@ function myplugin_validate_options($input) {
 }
 
 // default plugin options
-function myplugin_options_default() {
+function mattbebay_options_default() {
 
 	return array(
 		'custom_url'     => 'https://wordpress.org/',

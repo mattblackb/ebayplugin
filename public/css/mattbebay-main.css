@@ -2,5 +2,23 @@
     display: flex;
     flex: auto;
     width: 100%;
-    background-color: brown;
+}
+.mattbEbay_leftCol {
+    width: 110px;
+    max-width: 110px;
+    align-items: center;
+    padding: 5px;
+}
+.mattbEbay_leftCol img{
+    width: 100px;
+    max-width: 100px!important;
+}
+.black {
+    background-color: white;
+    color: black;
+}
+
+.blue {
+    background-color: lightblue;
+    color: darkblue;
 }

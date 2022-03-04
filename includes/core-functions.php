@@ -1,4 +1,4 @@
-<?php // MyPlugin - Core Functionality
+<?php // mattbebay - Core Functionality
 
 
 
@@ -9,50 +9,23 @@ if ( ! defined( 'ABSPATH' ) ) {
 	
 }
 
-
-
-// custom login logo url
-function myplugin_custom_login_url( $url ) {
-	
-	$options = get_option( 'myplugin_options', myplugin_options_default() );
-	
-	if ( isset( $options['custom_url'] ) && ! empty( $options['custom_url'] ) ) {
+function sd_add_scripts(){
+	wp_enqueue_script( 'mattbebay', plugin_dir_url( dirname( __FILE__ ) ) . 'public/js/mattbebay-default.js', array('jquery'), null, true );
 		
-		$url = esc_url( $options['custom_url'] );
+ 
+	wp_enqueue_style( 'mattbebay', plugin_dir_url( dirname( __FILE__ ) ) . 'public/css/mattbebay-main.css', array(), null, 'screen' );
 		
-	}
-	
-	return $url;
-	
 }
-add_filter( 'login_headerurl', 'myplugin_custom_login_url' );
-
-
-
-// custom login logo title
-function myplugin_custom_login_title( $title ) {
-	
-	$options = get_option( 'myplugin_options', myplugin_options_default() );
-	
-	if ( isset( $options['custom_title'] ) && ! empty( $options['custom_title'] ) ) {
-		
-		$title = esc_attr( $options['custom_title'] );
-		
-	}
-	
-	return $title;
-	
-}
-add_filter( 'login_headertext', 'myplugin_custom_login_title' );
+add_action( 'wp_enqueue_scripts', 'sd_add_scripts' );
 
 
 
 // custom login styles
-function myplugin_custom_login_styles() {
+function mattbebay_custom_login_styles() {
 	
 	$styles = true;
-	
-	$options = get_option( 'myplugin_options', myplugin_options_default() );
+	echo('lodaing scripts');
+	$options = get_option( 'mattbebay_options', mattbebay_options_default() );
 	
 	if ( isset( $options['custom_style'] ) && ! empty( $options['custom_style'] ) ) {
 		
@@ -62,86 +35,25 @@ function myplugin_custom_login_styles() {
 	
 
 		
-		wp_enqueue_style( 'myplugin', plugin_dir_url( dirname( __FILE__ ) ) . 'public/css/mattbebay-main.css', array(), null, 'screen' );
+		wp_enqueue_style( 'mattbebay', plugin_dir_url( dirname( __FILE__ ) ) . 'public/css/mattbebay-main.css', array(), null, 'screen' );
 		
-		wp_enqueue_script( 'myplugin', plugin_dir_url( dirname( __FILE__ ) ) . 'public/js/mattbebay-default.js', array(), null, true );
+		wp_enqueue_script( 'mattbebay', plugin_dir_url( dirname( __FILE__ ) ) . 'public/js/mattbebay-default.js', array(), null, true );
 		
 	
 	
 }
-add_action( 'login_enqueue_scripts', 'myplugin_custom_login_styles' );
+add_action( 'login_enqueue_scripts', 'mattbebay_custom_login_styles' );
 
 
-
-// custom login message
-function myplugin_custom_login_message( $message ) {
-	
-	$options = get_option( 'myplugin_options', myplugin_options_default() );
-	
-	if ( isset( $options['custom_message'] ) && ! empty( $options['custom_message'] ) ) {
-		
-		$message = wp_kses_post( $options['custom_message'] ) . $message;
-		
-	}
-	
-	return $message;
-	
-}
-add_filter( 'login_message', 'myplugin_custom_login_message' );
-
-
-
-// custom admin footer
-function myplugin_custom_admin_footer( $message ) {
-	
-	$options = get_option( 'myplugin_options', myplugin_options_default() );
-	
-	if ( isset( $options['custom_footer'] ) && ! empty( $options['custom_footer'] ) ) {
-		
-		$message = sanitize_text_field( $options['custom_footer'] );
-		
-	}
-	
-	return $message;
-	
-}
-add_filter( 'admin_footer_text', 'myplugin_custom_admin_footer' );
-
-
-
-// custom toolbar items
-function myplugin_custom_admin_toolbar() {
-	
-	$toolbar = false;
-	
-	$options = get_option( 'myplugin_options', myplugin_options_default() );
-	
-	if ( isset( $options['custom_toolbar'] ) && ! empty( $options['custom_toolbar'] ) ) {
-		
-		$toolbar = (bool) $options['custom_toolbar'];
-		
-	}
-	
-	if ( $toolbar ) {
-		
-		global $wp_admin_bar;
-		
-		$wp_admin_bar->remove_menu( 'comments' );
-		$wp_admin_bar->remove_menu( 'new-content' );
-		
-	}
-	
-}
-add_action( 'wp_before_admin_bar_render', 'myplugin_custom_admin_toolbar', 999 );
 
 
 
 // custom admin color scheme
-function myplugin_custom_admin_scheme( $user_id ) {
+function mattbebay_custom_admin_scheme( $user_id ) {
 	
 	$scheme = 'default';
 	
-	$options = get_option( 'myplugin_options', myplugin_options_default() );
+	$options = get_option( 'mattbebay_options', mattbebay_options_default() );
 	
 	if ( isset( $options['custom_scheme'] ) && ! empty( $options['custom_scheme'] ) ) {
 		
@@ -154,6 +66,6 @@ function myplugin_custom_admin_scheme( $user_id ) {
 	wp_update_user( $args );
 	
 }
-add_action( 'user_register', 'myplugin_custom_admin_scheme' );
+add_action( 'user_register', 'mattbebay_custom_admin_scheme' );
 
 

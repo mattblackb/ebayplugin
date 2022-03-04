@@ -1,4 +1,4 @@
-<?php // MyPlugin - Validate Settings
+<?php // mattbebay - Validate Settings
 
 
 
@@ -12,7 +12,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 
 // callback: validate options
-function myplugin_callback_validate_options( $input ) {
+function mattbebay_callback_validate_options( $input ) {
 	
 	// custom url
 	if ( isset( $input['custom_url'] ) ) {
@@ -29,7 +29,7 @@ function myplugin_callback_validate_options( $input ) {
 	}
 	
 	// custom style
-	$radio_options = myplugin_options_radio();
+	$radio_options = mattbebay_options_radio();
 	
 	if ( ! isset( $input['custom_style'] ) ) {
 		
@@ -66,7 +66,7 @@ function myplugin_callback_validate_options( $input ) {
 	$input['custom_toolbar'] = ($input['custom_toolbar'] == 1 ? 1 : 0);
 	
 	// custom scheme
-	$select_options = myplugin_options_select();
+	$select_options = mattbebay_options_select();
 	
 	if ( ! isset( $input['custom_scheme'] ) ) {
 		

@@ -1,4 +1,4 @@
-<?php // MyPlugin - Settings Page
+<?php // mattbebay - Settings Page
 
 
 
@@ -13,7 +13,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 
 // display the plugin settings page
-function myplugin_display_settings_page() {
+function mattbebay_display_settings_page() {
 	
 	// check if user is allowed access
 	if ( ! current_user_can( 'manage_options' ) ) return;
@@ -27,10 +27,10 @@ function myplugin_display_settings_page() {
 			<?php
 			
 			// output security fields
-			settings_fields( 'myplugin_options' );
+			settings_fields( 'mattbebay_options' );
 			
 			// output setting sections
-			do_settings_sections( 'myplugin' );
+			do_settings_sections( 'mattbebay' );
 			
 			// submit button
 			submit_button();

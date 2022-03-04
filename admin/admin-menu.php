@@ -1,4 +1,4 @@
-<?php // MyPlugin - Admin Menu
+<?php // mattbebay - Admin Menu
 
 
 
@@ -12,7 +12,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 
 // add sub-level administrative menu
-function myplugin_add_sublevel_menu() {
+function mattbebay_add_sublevel_menu() {
 	
 	/*
 	
@@ -29,20 +29,20 @@ function myplugin_add_sublevel_menu() {
 	
 	add_submenu_page(
 		'options-general.php',
-		'MyPlugin Settings',
-		'MyPlugin',
+		'mattbebay Settings',
+		'mattbebay',
 		'manage_options',
-		'myplugin',
-		'myplugin_display_settings_page'
+		'mattbebay',
+		'mattbebay_display_settings_page'
 	);
 	
 }
-add_action( 'admin_menu', 'myplugin_add_sublevel_menu' );
+add_action( 'admin_menu', 'mattbebay_add_sublevel_menu' );
 
 
 
 // add top-level administrative menu
-function myplugin_add_toplevel_menu() {
+function mattbebay_add_toplevel_menu() {
 	
 	/* 
 	
@@ -59,16 +59,16 @@ function myplugin_add_toplevel_menu() {
 	*/
 	
 	add_menu_page(
-		'MyPlugin Settings',
-		'MyPlugin',
+		'mattbebay Settings',
+		'mattbebay',
 		'manage_options',
-		'myplugin',
-		'myplugin_display_settings_page',
+		'mattbebay',
+		'mattbebay_display_settings_page',
 		'dashicons-admin-generic',
 		null
 	);
 	
 }
-// add_action( 'admin_menu', 'myplugin_add_toplevel_menu' );
+// add_action( 'admin_menu', 'mattbebay_add_toplevel_menu' );
 
 
