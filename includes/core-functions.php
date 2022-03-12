@@ -24,7 +24,6 @@ add_action( 'wp_enqueue_scripts', 'sd_add_scripts' );
 function mattbebay_custom_login_styles() {
 	
 	$styles = true;
-	echo('lodaing scripts');
 	$options = get_option( 'mattbebay_options', mattbebay_options_default() );
 	
 	if ( isset( $options['custom_style'] ) && ! empty( $options['custom_style'] ) ) {
