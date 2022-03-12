@@ -2,16 +2,20 @@
     display: flex;
     flex: auto;
     width: 100%;
+    flex-wrap: wrap;
+    border: 1px solid black;
 }
 .mattbEbay_leftCol {
-    width: 110px;
-    max-width: 110px;
+    width: 40%;
+    max-width: 40%;
     align-items: center;
+    justify-content: center;
     padding: 5px;
+    display: flex;
 }
 .mattbEbay_leftCol img{
-    width: 100px;
-    max-width: 100px!important;
+    height: 150px;
+    margin-bottom: 5px;
 }
 .black {
     background-color: white;
@@ -21,4 +25,32 @@
 .blue {
     background-color: lightblue;
     color: darkblue;
+}
+.mattEbay_header {
+    width: 95%;
+    padding: 2.5%;
+}
+.mattEbay_header h5{
+    margin: 0;
+    padding: 0;
+}
+.mattbEbay_currentPrice, .mattbEbay_buyitnowPrice {
+    margin: 0px;
+    margin-block-start: 0px;
+    margin-block-end: 0px;
+}
+.mattbEbay_p_bold {
+    font-weight: bold;
+}
+.mattbEbay_button {
+        background-color: #315bb6;
+        border: none;
+        color: white;
+        padding: 5px 15px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
 }
